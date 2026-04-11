@@ -1,10 +1,11 @@
 # @tir.jp/glsl2png
 
-Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
-This tool is designed to facilitate an incremental development cycle for fragment shaders, allowing you to quickly iterate on your GLSL code and verify the results.
-
 [![npm version](https://img.shields.io/npm/v/@tir.jp/glsl2png.svg)](https://www.npmjs.com/package/@tir.jp/glsl2png)
 [![License](https://img.shields.io/npm/l/@tir.jp/glsl2png.svg)](https://github.com/ayamada/glsl2png/blob/main/LICENSE)
+
+Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
+
+This tool is designed to facilitate an incremental development cycle for fragment shaders, allowing you to quickly iterate on your GLSL code and verify the results.
 
 ## Features
 
