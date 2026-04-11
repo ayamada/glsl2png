@@ -1,4 +1,4 @@
-# glsl2png
+# @tir.jp/glsl2png
 
 Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
 
@@ -13,10 +13,10 @@ Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
 ## Installation
 
 ```bash
-npm install -g glsl2png
+npm install -g @tir.jp/glsl2png
 ```
 
-Or use it directly via `npx`:
+And use it via `npx`:
 
 ```bash
 npx glsl2png shader.frag --out output.png
