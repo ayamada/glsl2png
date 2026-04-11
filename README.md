@@ -1,6 +1,10 @@
 # @tir.jp/glsl2png
 
 Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
+This tool is designed to facilitate an incremental development cycle for fragment shaders, allowing you to quickly iterate on your GLSL code and verify the results.
+
+[![npm version](https://img.shields.io/npm/v/@tir.jp/glsl2png.svg)](https://www.npmjs.com/package/@tir.jp/glsl2png)
+[![License](https://img.shields.io/npm/l/@tir.jp/glsl2png.svg)](https://github.com/ayamada/glsl2png/blob/main/LICENSE)
 
 ## Features
 
@@ -16,10 +20,10 @@ Render GLSL fragments to PNG or standalone HTML using Puppeteer and WebGL2.
 npm install -g @tir.jp/glsl2png
 ```
 
-And use it via `npx`:
+Or use it directly via `npx`:
 
 ```bash
-npx glsl2png shader.frag --out output.png
+npx @tir.jp/glsl2png --help
 ```
 
 ## Usage
@@ -50,7 +54,7 @@ glsl2png samples/basic.frag --time 0.0 --time 0.5 --time 1.0 --out animation.png
 
 ### glsl2html
 
-Generate a standalone HTML file.
+Generate a standalone HTML file. It is auxiliary tool for share glsl animation easily.
 
 ```bash
 glsl2html <fragment_shader_path> [options]
@@ -101,25 +105,25 @@ And see [samples/](samples/) directory.
 
 ### Fractal KIFS
 ```bash
-npx glsl2png samples/fractal_kifs.frag --out img/fractal_kifs.png --time 1.0
+glsl2png samples/fractal_kifs.frag --out img/fractal_kifs.png --time 1.0
 ```
 ![Fractal KIFS](img/fractal_kifs.png)
 
 ### Fractal Raymarching
 ```bash
-npx glsl2png samples/fractal_raymarching.frag --out img/fractal_raymarching.png --time 1.0
+glsl2png samples/fractal_raymarching.frag --out img/fractal_raymarching.png --time 1.0
 ```
 ![Fractal Raymarching](img/fractal_raymarching.png)
 
 ### Nature
 ```bash
-npx glsl2png samples/nature.frag --out img/nature.png --time 1.0
+glsl2png samples/nature.frag --out img/nature.png --time 1.0
 ```
 ![Nature](img/nature.png)
 
 ### Voronoi
 ```bash
-npx glsl2png samples/voronoi.frag --out img/voronoi.png --time 1.0
+glsl2png samples/voronoi.frag --out img/voronoi.png --time 1.0
 ```
 ![Voronoi](img/voronoi.png)
 
