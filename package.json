@@ -1,0 +1,39 @@
+{
+  "name": "glsl2png",
+  "version": "1.0.0",
+  "description": "Render GLSL fragment shaders to PNG images or standalone HTML using Puppeteer and WebGL2.",
+  "keywords": [
+    "glsl",
+    "webgl",
+    "webgl2",
+    "puppeteer",
+    "headless",
+    "renderer",
+    "png",
+    "html",
+    "shader"
+  ],
+  "type": "module",
+  "bin": {
+    "glsl2png": "bin/glsl2png.mjs",
+    "glsl2html": "bin/glsl2html.mjs"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "start": "node bin/glsl2png.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "24.40.0"
+  },
+  "author": "ayamada",
+  "contributors": [
+    "mac"
+  ],
+  "license": "Zlib",
+  "publishConfig": {
+    "access": "public"
+  }
+}
