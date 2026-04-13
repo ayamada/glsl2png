@@ -8,9 +8,14 @@ out vec4 outColor;
 
 #define PI 3.14159265359
 
+mat2 rotate2d(float _angle){
+    return mat2(cos(_angle),-sin(_angle), sin(_angle),cos(_angle));
+}
+
 void main() {
     // 画面中心を原点(0,0)とし、-1.0〜1.0の範囲に正規化
     vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    uv = rotate2d(u_time*0.1)*uv;
 
     // 極座標変換
     float r = length(uv);
