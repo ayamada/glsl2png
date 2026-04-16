@@ -22,9 +22,9 @@ export function setupWebGL(vs, fs, opt = {}) {
   }
 
   const vsRes = compile(gl.VERTEX_SHADER, vs);
-  if (vsRes.error) return { error: "VS: " + vsRes.error };
+  if (vsRes.error) return { error: "in vertexShaderSource: \n" + vsRes.error };
   const fsRes = compile(gl.FRAGMENT_SHADER, fs);
-  if (fsRes.error) return { error: "FS: " + fsRes.error };
+  if (fsRes.error) return { error: "in fragmentShaderSource: \n" + fsRes.error };
 
   const prog = gl.createProgram();
   gl.attachShader(prog, vsRes.shader);
