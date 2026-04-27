@@ -52,14 +52,20 @@ export function setupWebGL(vs, fs, opt = {}) {
   /**
    * Renders a single frame.
    * @param {number} time - Current time in seconds.
+   * @param {object} viewport - Optional {x, y, width, height}.
    */
-  const render = (time) => {
-    gl.viewport(0, 0, canvas.width, canvas.height);
+  const render = (time, viewport = null) => {
+    const vx = viewport ? viewport.x : 0;
+    const vy = viewport ? viewport.y : 0;
+    const vw = viewport ? viewport.width : canvas.width;
+    const vh = viewport ? viewport.height : canvas.height;
+
+    gl.viewport(vx, vy, vw, vh);
     gl.useProgram(prog);
     gl.bindVertexArray(vao);
 
     // Set standard uniforms
-    if (locations.resolution) gl.uniform2f(locations.resolution, canvas.width, canvas.height);
+    if (locations.resolution) gl.uniform2f(locations.resolution, vw, vh);
     if (locations.time) gl.uniform1f(locations.time, time);
 
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);

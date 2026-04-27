@@ -31,15 +31,15 @@ Options:
   -v, --version        Show version number.
 
 Built-in Uniforms:
-  uniform vec2 u_resolution;  // Canvas resolution (width, height) in pixels.
+  uniform vec2 u_resolution;  // Viewport resolution (width, height) in pixels.
   uniform float u_time;       // Current time in seconds.
-  // (Equivalent to Shadertoy's iResolution and iTime)
 
 GLSL Requirements (WebGL2):
   - Header: #version 300 es
   - Precision: precision highp float;
+  - Input: in vec2 v_uv; (Vertex position in range -1.0 to 1.0)
   - Output: out vec4 fragColor; (instead of using gl_FragColor)
-  - Coordinate: vec2 uv = gl_FragCoord.xy / u_resolution;
+  - Coordinate: vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
 
 Notes:
   - Textures: Not supported yet (e.g., iChannel0-3 are unavailable).
@@ -52,7 +52,9 @@ Example:
 
 const DEFAULT_VS = `#version 300 es
 in vec2 a_position;
+out vec2 v_uv;
 void main() {
+  v_uv = a_position;
   gl_Position = vec4(a_position, 0.0, 1.0);
 }
 `;

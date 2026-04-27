@@ -1,5 +1,6 @@
 #version 300 es
 precision highp float;
+in vec2 v_uv;
 
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -21,7 +22,7 @@ float hash12(vec2 p) {
 }
 
 void main() {
-    vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
     uv *= 4.0; // Scale the grid
 
     vec2 i_uv = floor(uv);

@@ -1,5 +1,6 @@
 #version 300 es
 precision highp float;
+in vec2 v_uv;
 
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -8,7 +9,7 @@ out vec4 outColor;
 
 // A simple recursive folding fractal (KIFS)
 void main() {
-    vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
     
     vec3 col = vec4(0.0).rgb;
     vec2 gv = uv;

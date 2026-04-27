@@ -1,5 +1,6 @@
 #version 300 es
 precision highp float;
+in vec2 v_uv;
 
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -14,7 +15,7 @@ mat2 rotate2d(float _angle){
 
 void main() {
     // 画面中心を原点(0,0)とし、-1.0〜1.0の範囲に正規化
-    vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
     uv = rotate2d(u_time*0.1)*uv;
 
     // 極座標変換

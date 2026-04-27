@@ -1,5 +1,6 @@
 #version 300 es
 precision highp float;
+in vec2 v_uv;
 
 uniform vec2 u_resolution;
 uniform float u_time;
@@ -39,7 +40,7 @@ float fbm(vec2 p) {
 
 void main() {
     // 中央を原点とし、アスペクト比を考慮した座標系
-    vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
     
     // 炎のベース位置調整（少し下に下げる）
     vec2 p = uv;
