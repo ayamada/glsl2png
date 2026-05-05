@@ -58,7 +58,7 @@ vec3 get_normal(vec3 p) {
 }
 
 void main() {
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv;
     
     // Camera
     float time = u_time * 0.2;

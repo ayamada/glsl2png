@@ -77,7 +77,7 @@ Your fragment shaders should follow the WebGL2 (ES 300) specification:
 
 - **Header**: Must include `#version 300 es`.
 - **Precision**: Must define precision, e.g., `precision highp float;`.
-- **Input**: Use `in vec2 v_uv;` to get the vertex position (range -1.0 to 1.0).
+- **Input**: Use `in vec2 v_uv;` to get the aspect-corrected vertex position (the shorter axis is in the range -1.0 to 1.0).
 - **Output**: Use `out vec4 fragColor;` instead of `gl_FragColor`.
 - **Built-in Uniforms**:
   - `uniform vec2 u_resolution;`: Viewport resolution (width, height) in pixels.
@@ -96,6 +96,8 @@ uniform float u_time;
 out vec4 fragColor;
 
 void main() {
+    // v_uv is already aspect-corrected.
+    // Map to 0.0-1.0 range (caution: range varies by aspect ratio)
     vec2 uv = (v_uv + 1.0) * 0.5;
     vec3 col = 0.5 + 0.5 * cos(u_time + uv.xyx + vec3(0, 2, 4));
     fragColor = vec4(col, 1.0);
@@ -131,6 +133,9 @@ glsl2png samples/voronoi.frag --out img/voronoi.png --time 1.0
 ![Voronoi](img/voronoi.png)
 
 ## ChangeLog
+
+- 3.0.0: 20260506
+    - Adjust aspect-ratio in vertexShader, not fragmentShader
 
 - 2.0.0: 20260427
     - Support `v_uv`

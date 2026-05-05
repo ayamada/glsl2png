@@ -44,7 +44,7 @@ float map(vec3 p) {
 }
 
 void main() {
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv;
     uv += vec2(0.4, -0.4);
     
     // Movement over time

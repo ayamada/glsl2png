@@ -9,7 +9,7 @@ out vec4 outColor;
 
 // A simple recursive folding fractal (KIFS)
 void main() {
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv;
     
     vec3 col = vec4(0.0).rgb;
     vec2 gv = uv;

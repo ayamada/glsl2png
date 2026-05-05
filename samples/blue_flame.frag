@@ -39,8 +39,8 @@ float fbm(vec2 p) {
 }
 
 void main() {
-    // 中央を原点とし、アスペクト比を考慮した座標系
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    // 中央を原点とし、アスペクト比を考慮した座標系 (Vertex Shader側で補正済み)
+    vec2 uv = v_uv;
     
     // 炎のベース位置調整（少し下に下げる）
     vec2 p = uv;

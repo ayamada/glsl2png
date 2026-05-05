@@ -1,6 +1,6 @@
 {
   "name": "@tir.jp/glsl2png",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Render GLSL fragment shaders to PNG images or standalone HTML using Puppeteer and WebGL2.",
   "type": "module",
   "bin": {

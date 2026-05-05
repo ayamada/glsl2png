@@ -15,8 +15,8 @@ float hash(vec2 p) {
 }
 
 void main() {
-    // Normalized and centered coordinates
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    // Normalized and centered coordinates (Vertex Shader側で補正済み)
+    vec2 uv = v_uv;
     
     // Calculate distance to the "edges" of the square
     float dist = max(abs(uv.x), abs(uv.y));

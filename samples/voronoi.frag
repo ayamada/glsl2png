@@ -22,7 +22,7 @@ float hash12(vec2 p) {
 }
 
 void main() {
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv;
     uv *= 4.0; // Scale the grid
 
     vec2 i_uv = floor(uv);

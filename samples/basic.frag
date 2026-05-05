@@ -5,6 +5,8 @@ uniform vec2 u_resolution;
 uniform float u_time;
 out vec4 outColor;
 void main() {
+    // v_uv is aspect-corrected (the shorter axis is -1.0 to 1.0).
+    // Map to 0.0-1.0 range (caution: range varies by aspect ratio).
     vec2 uv = (v_uv + 1.0) * 0.5;
     vec3 col = 0.5 + 0.5 * cos(u_time + uv.xyx + vec3(0, 2, 4));
     outColor = vec4(col, 1.0);

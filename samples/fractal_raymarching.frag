@@ -24,7 +24,7 @@ float map(vec3 p) {
 }
 
 void main() {
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    vec2 uv = v_uv;
 
     vec3 ro = vec3(0, 0, -3); // Ray origin
     vec3 rd = normalize(vec3(uv, 1.5)); // Ray direction

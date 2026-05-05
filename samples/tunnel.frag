@@ -14,8 +14,8 @@ mat2 rotate2d(float _angle){
 }
 
 void main() {
-    // 画面中心を原点(0,0)とし、-1.0〜1.0の範囲に正規化
-    vec2 uv = v_uv * u_resolution / min(u_resolution.x, u_resolution.y);
+    // 画面中心を原点(0,0)とし、アスペクト比を考慮した座標系 (Vertex Shader側で補正済み)
+    vec2 uv = v_uv;
     uv = rotate2d(u_time*0.1)*uv;
 
     // 極座標変換
